@@ -31,25 +31,20 @@ import ShoppingList from "./ShoppingList";
 import itemData from "../data/items";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: itemData,
-      isDarkMode: false,
-    };
-    this.handleDarkModeClick = this.handleDarkModeClick.bind(this);
-  }
+  state = {
+    items: itemData,
+    isDarkMode: false,
+  };
 
-  handleDarkModeClick() {
+  handleDarkModeClick = () => {
     this.setState((prevState) => ({
       isDarkMode: !prevState.isDarkMode,
     }));
-  }
+  };
 
   render() {
     const { items, isDarkMode } = this.state;
-
-    return (
+  return (
       <div className={"App " + (isDarkMode ? "dark" : "light")}>
         <header>
           <h2>Shopster</h2>
@@ -65,7 +60,3 @@ class App extends Component {
 
 export default App;
 
-
-//Constructor: Initializes the state with items and isDarkMode, and binds the handleDarkModeClick method.
-//handleDarkModeClick: Toggles the isDarkMode state.
-//render: Destructures items and isDarkMode from the state, and applies the corresponding class to the div based on the isDarkMode state. It also renders the ShoppingList component with the items prop.

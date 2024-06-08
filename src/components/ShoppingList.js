@@ -42,17 +42,13 @@ import React, { Component } from "react";
 import Item from "./Item";
 
 class ShoppingList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedCategory: "All",
-    };
-    this.handleCategoryChange = this.handleCategoryChange.bind(this);
-  }
+  state = {
+    selectedCategory: "All",
+  };
 
-  handleCategoryChange(event) {
+  handleCategoryChange = (event) => {
     this.setState({ selectedCategory: event.target.value });
-  }
+  };
 
   render() {
     const { items } = this.props;
